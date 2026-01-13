@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Qazaq Connect — Kazakh Speaking Club in NYC</title>
+  <meta name="description" content="Qazaq Connect is a nonprofit initiative preserving Kazakh language & culture in NYC through speaking clubs, cultural events, and community." />
+  <meta name="theme-color" content="#0A4157" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Qazaq Connect — Kazakh Speaking Club in NYC" />
+  <meta property="og:description" content="Speak Kazakh. Meet your people. Feel at home in NYC." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/hero-1.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Event structured data (filled by script.js) -->
+  <script type="application/ld+json" id="eventJsonLd"></script>
+</head>
+
+<body>
+  <a class="skipLink" href="#top">Skip to content</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="#top" aria-label="Qazaq Connect home">
+        <img src="assets/logo.png" alt="Qazaq Connect logo" class="brand__logo" />
+        <div class="brand__text">
+          <div class="brand__name">Qazaq Connect</div>
+          <div class="brand__tag" data-i18n="brand_tag">Nonprofit • NYC</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#join" data-i18n="nav_join">How to Join</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#programs" data-i18n="nav_programs">Programs</a>
+        <a href="#events" data-i18n="nav_events">Events</a>
+        <a href="#community" data-i18n="nav_community">Community</a>
+        <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+      </nav>
+
+      <div class="header__actions">
+        <button id="langToggle" class="btn btn--ghost btn--desktop langBtn" type="button" aria-label="Toggle language">
+          <span class="langDot"></span>
+          <span id="langLabel">EN</span>
+        </button>
+
+        <a class="btn btn--primary btn--desktop" href="#events" data-i18n="nav_rsvp">
+          RSVP
+        </a>
+
+        <a class="btn btn--ghost btn--desktop" href="https://t.me/+3HtZmf0cFZJlNjM5" target="_blank" rel="noopener" data-i18n="join_telegram">
+          Join Telegram
+        </a>
+
+        <button id="menuBtn" class="iconBtn" aria-label="Open menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="mobileMenu" aria-label="Mobile navigation">
+      <div class="container mobileMenu__inner">
+        <a href="#join" data-i18n="nav_join">How to Join</a>
+        <a href="#about" data-i18n="nav_about">About</a>
+        <a href="#programs" data-i18n="nav_programs">Programs</a>
+        <a href="#events" data-i18n="nav_events">Events</a>
+        <a href="#community" data-i18n="nav_community">Community</a>
+        <a href="#gallery" data-i18n="nav_gallery">Gallery</a>
+        <a href="#contact" data-i18n="nav_contact">Contact</a>
+
+        <button id="langToggleMobile" class="chip" type="button">
+          🌐 <span id="langLabelMobile">EN</span>
+        </button>
+
+        <div class="mobileMenu__chips">
+          <a class="chip" href="#events" data-i18n="nav_rsvp">RSVP</a>
+          <a class="chip" href="https://chat.whatsapp.com/DQXKsMQLTe2AYSSVaUuwIX" target="_blank" rel="noopener">WhatsApp</a>
+          <a class="chip" href="https://t.me/+3HtZmf0cFZJlNjM5" target="_blank" rel="noopener">Telegram</a>
+          <a class="chip" href="https://www.instagram.com/qazaq.connect/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky RSVP (mobile) -->
+  <a id="stickyRsvp" class="stickyRsvp" href="#events" data-i18n="sticky_rsvp" aria-label="RSVP to next speaking club">
+    RSVP • Next Club
+  </a>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="container section hero">
+      <div class="heroCard">
+        <div class="heroMedia" aria-hidden="true">
+          <img src="assets/hero-1.jpg" class="heroSlide is-active" alt="" />
+          <img src="assets/hero-2.jpg" class="heroSlide" alt="" />
+          <img src="assets/hero-3.jpg" class="heroSlide" alt="" />
+          <img src="assets/hero-4.jpg" class="heroSlide" alt="" />
+          <div class="heroOverlay"></div>
+          <div class="heroGlow"></div>
+        </div>
+
+        <div class="heroContent">
+          <div class="pill reveal">
+            <span class="dot"></span>
+            <span data-i18n="hero_pill">Kazakh language • Culture • Community in NYC</span>
+          </div>
+
+          <h1 class="reveal" data-i18n="hero_title">
+            Speak Kazakh. Meet your people. Feel at home in NYC.
+          </h1>
+
+          <p class="lead reveal" data-i18n="hero_lead">
+            Qazaq Connect is a nonprofit initiative built by young entrepreneurs to preserve and promote Kazakh language and culture through speaking clubs, cultural events, and community.
+          </p>
+
+          <!-- Next event highlight -->
+          <div class="nextEventBanner reveal" role="status" aria-live="polite">
+            <div class="nextEventBanner__kicker" data-i18n="next_kicker">Next speaking club</div>
+            <div class="nextEventBanner__title" id="nextEventTitle">Weekly • NYC</div>
+            <div class="nextEventBanner__meta" id="nextEventMeta"></div>
+            <div class="nextEventBanner__actions">
+              <a id="nextEventBtn" class="btn btn--primary" href="#events" data-i18n="join_next_club">Join Next Speaking Club</a>
+              <a class="btn btn--ghost" href="#join" data-i18n="how_to_join_btn">How to join</a>
+            </div>
+          </div>
+
+          <div class="ctaRow reveal">
+            <!-- Keep all original CTAs (don’t remove) -->
+            <a class="btn" href="https://t.me/+3HtZmf0cFZJlNjM5" target="_blank" rel="noopener" data-i18n="join_telegram">Join Telegram</a>
+            <a class="btn" href="https://chat.whatsapp.com/DQXKsMQLTe2AYSSVaUuwIX" target="_blank" rel="noopener" data-i18n="join_whatsapp">Join WhatsApp</a>
+            <a class="btn btn--ghost" href="#events" data-i18n="see_events">See events</a>
+            <a class="btn btn--ghost" href="#support" data-i18n="donate">Donate</a>
+          </div>
+
+          <div class="divider reveal"></div>
+
+          <div class="stats reveal">
+            <div class="stat">
+              <div class="stat__big" data-i18n="stat_weekly_big">Weekly</div>
+              <div class="stat__small" data-i18n="stat_weekly_small">Speaking clubs</div>
+            </div>
+            <div class="stat">
+              <div class="stat__big">NYC</div>
+              <div class="stat__small" data-i18n="stat_hub_small">Community hub</div>
+            </div>
+            <div class="stat">
+              <div class="stat__big" data-i18n="stat_big_big">Big events</div>
+              <div class="stat__small">Nauryz • Jeltoqsan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to Join -->
+    <section id="join" class="container section">
+      <div class="reveal">
+        <h2 data-i18n="join_title">How to Join</h2>
+        <p class="muted" data-i18n="join_text">
+          Two minutes and you’re in. Pick your level, RSVP, and we’ll remind you.
+        </p>
+      </div>
+
+      <div class="joinGrid reveal">
+        <article class="card card--hover">
+          <div class="card__top">
+            <span class="tag" data-i18n="join_step1_k">Step 1</span>
+            <span class="mini" data-i18n="join_step1_m">Choose your level</span>
+          </div>
+          <div class="card__title" data-i18n="join_step1_t">Take a 30‑second quiz</div>
+          <div class="card__text" data-i18n="join_step1_b">We’ll recommend the right speaking group: beginner, intermediate, or advanced.</div>
+          <div class="chipRow">
+            <a class="btn btn--primary" href="#quiz" data-i18n="take_quiz">Take the quiz</a>
+            <a class="btn" href="#events" data-i18n="browse_events">Browse events</a>
+          </div>
+        </article>
+
+        <article class="card card--hover">
+          <div class="card__top">
+            <span class="tag" data-i18n="join_step2_k">Step 2</span>
+            <span class="mini" data-i18n="join_step2_m">Stay in the loop</span>
+          </div>
+          <div class="card__title" data-i18n="join_step2_t">Join Telegram / WhatsApp</div>
+          <div class="card__text" data-i18n="join_step2_b">We post weekly club topics, locations, and last‑minute updates there.</div>
+          <div class="chipRow">
+            <a class="btn btn--primary" href="https://t.me/+3HtZmf0cFZJlNjM5" target="_blank" rel="noopener">Telegram</a>
+            <a class="btn" href="https://chat.whatsapp.com/DQXKsMQLTe2AYSSVaUuwIX" target="_blank" rel="noopener">WhatsApp</a>
+          </div>
+        </article>
+
+        <article class="card card--hover">
+          <div class="card__top">
+            <span class="tag" data-i18n="join_step3_k">Step 3</span>
+            <span class="mini" data-i18n="join_step3_m">Get reminders</span>
+          </div>
+          <div class="card__title" data-i18n="join_step3_t">Event notifications</div>
+          <div class="card__text" data-i18n="join_step3_b">Leave your email/phone and we’ll send the next club details (no spam).</div>
+
+          <form id="notifyForm" class="notifyForm" novalidate>
+            <div class="fieldRow">
+              <label class="field">
+                <span class="field__label" data-i18n="form_email">Email</span>
+                <input name="email" type="email" autocomplete="email" placeholder="you@email.com" data-i18n-placeholder="form_email_ph" />
+              </label>
+              <label class="field">
+                <span class="field__label" data-i18n="form_phone">Phone (optional)</span>
+                <input name="phone" type="tel" autocomplete="tel" placeholder="+1 555 123 4567" data-i18n-placeholder="form_phone_ph" />
+              </label>
+            </div>
+
+            <div class="fieldRow">
+              <label class="field">
+                <span class="field__label" data-i18n="form_lang">Preferred language</span>
+                <select name="pref_lang">
+                  <option value="en" data-i18n="form_lang_en">English</option>
+                  <option value="kz" data-i18n="form_lang_kz">Kazakh</option>
+                </select>
+              </label>
+              <label class="field">
+                <span class="field__label" data-i18n="form_interest">Interested in</span>
+                <select name="interest">
+                  <option value="speaking" data-i18n="form_interest_speaking">Speaking clubs</option>
+                  <option value="cultural" data-i18n="form_interest_cultural">Cultural events</option>
+                  <option value="both" data-i18n="form_interest_both">Both</option>
+                </select>
+              </label>
+            </div>
+
+            <button class="btn btn--primary btn--wide" type="submit" data-i18n="form_submit">Notify me about the next event</button>
+            <div id="notifyMsg" class="formMsg" role="status" aria-live="polite"></div>
+            <p class="tiny" data-i18n="form_privacy">We only use this to send event reminders. Unsubscribe anytime.</p>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container section">
+      <div class="grid2">
+        <div class="reveal">
+          <h2 data-i18n="about_title">Our mission</h2>
+          <p class="muted" data-i18n="about_text">
+            We create conditions where Kazakh thrives not only as a cultural identity marker, but also as a practical tool for education, business, law, and everyday social interactions.
+          </p>
+          <div class="divider"></div>
+        </div>
+
+        <div class="cards reveal">
+          <article class="card">
+            <div class="card__kicker" data-i18n="about_card1_k">Who it’s for</div>
+            <div class="card__title" data-i18n="about_card1_t">Young Kazakhs, students, professionals</div>
+            <div class="card__text" data-i18n="about_card1_b">Whether you’re fluent or just starting — you’re welcome here.</div>
+          </article>
+
+          <article class="card">
+            <div class="card__kicker" data-i18n="about_card2_k">Our vibe</div>
+            <div class="card__title" data-i18n="about_card2_t">Safe, warm, judgment-free</div>
+            <div class="card__text" data-i18n="about_card2_b">No judging. Just encouragement, practice, and real community.</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust & legitimacy -->
+    <section id="trust" class="container section">
+      <div class="reveal">
+        <h2 data-i18n="trust_title">Trust & Impact</h2>
+        <p class="muted" data-i18n="trust_text">Built by the community, for the community — with real faces, real results.</p>
+      </div>
+
+      <div class="trustGrid reveal">
+        <article class="panel">
+          <div class="panelHead">
+            <h3 class="panelTitle" data-i18n="impact_title">2025 impact</h3>
+            <span class="mini mini--gold" data-i18n="impact_live">Live</span>
+          </div>
+
+          <div class="impactGrid">
+            <div class="impactStat">
+              <div class="impactStat__big" data-counter="clubs">27</div>
+              <div class="impactStat__small" data-i18n="impact_clubs">speaking clubs hosted</div>
+            </div>
+            <div class="impactStat">
+              <div class="impactStat__big" data-counter="attendees">100+</div>
+              <div class="impactStat__small" data-i18n="impact_attendees">total attendees</div>
+            </div>
+            <div class="impactStat">
+              <div class="impactStat__big" data-counter="members">207</div>
+              <div class="impactStat__small" data-i18n="impact_members">community members</div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="topicRow">
+            <div class="topicBadge">
+              <span class="topicBadge__k" data-i18n="topic_kicker">This week’s phrase</span>
+              <div class="topicBadge__p" id="weeklyPhrase">Сәлем! Қалайсың?</div>
+              <div class="topicBadge__t" id="weeklyPhraseHint"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panelHead">
+            <h3 class="panelTitle" data-i18n="team_title">Meet the team</h3>
+            <a class="btn btn--ghost btn--sm" href="#contact" data-i18n="team_cta">Partner with us</a>
+          </div>
+
+          <div class="teamGrid">
+            <div class="teamCard">
+              <img src="assets/team-1.jpg" alt="Co-Founder photo" loading="lazy">
+              <div>
+                <div class="teamCard__name">Mukhammedali</div>
+                <div class="teamCard__role" data-i18n="team_role1">Co-Founder</div>
+              </div>
+            </div>
+
+            <div class="teamCard">
+              <img src="assets/team-2.jpg" alt="Co-founder photo" loading="lazy">
+              <div>
+                <div class="teamCard__name">Marua</div>
+                <div class="teamCard__role" data-i18n="team_role2">Co-Founder</div>
+              </div>
+            </div>
+
+            <div class="teamCard">
+              <img src="assets/team-3.jpg" alt="Organizer photo" loading="lazy">
+              <div>
+                <div class="teamCard__name">Zamira</div>
+                <div class="teamCard__role" data-i18n="team_role3">Co-Founder/div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panelHead">
+            <h3 class="panelTitle" data-i18n="testimonials_title">What members say</h3>
+            <div class="dots" id="testimonialDots" aria-hidden="true"></div>
+          </div>
+
+          <div class="testimonial" id="testimonial">
+            <div class="testimonial__quote" id="testimonialQuote">“I finally found a place to practice Kazakh without being shy.”</div>
+            <div class="testimonial__who" id="testimonialWho">— Member, NYC</div>
+            <div class="chipRow">
+              <button class="btn btn--ghost btn--sm" id="testPrev" type="button" aria-label="Previous testimonial">←</button>
+              <button class="btn btn--ghost btn--sm" id="testNext" type="button" aria-label="Next testimonial">→</button>
+              <a class="btn btn--primary btn--sm" href="#events" data-i18n="testimonials_cta">Come this week</a>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="partners">
+            <div class="muted" data-i18n="partners_kicker">Partners / affiliations</div>
+            <div class="partnerRow">
+              <img src="assets/partner-1.png" alt="Partner logo 1" loading="lazy">
+              <img src="assets/partner-2.png" alt="Partner logo 2" loading="lazy">
+              <img src="assets/partner-3.png" alt="Partner logo 3" loading="lazy">
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Programs -->
+    <section id="programs" class="container section">
+      <div class="reveal">
+        <h2 data-i18n="programs_title">Programs</h2>
+        <p class="muted" data-i18n="programs_text">
+          Language practice + culture + community — built to make Kazakh part of everyday life again.
+        </p>
+      </div>
+
+      <div class="programGrid reveal">
+        <article class="card card--hover">
+          <div class="card__top">
+            <span class="tag" data-i18n="tag_core">Core</span>
+            <span class="mini" data-i18n="tag_alllevels">All levels</span>
+          </div>
+          <div class="card__title" data-i18n="prog1_title">Speaking Clubs</div>
+          <ul class="list">
+            <li data-i18n="prog1_li1">Beginner / intermediate / advanced groups</li>
+            <li data-i18n="prog1_li2">Cultural + practical topics (work, study, life)</li>
+            <li data-i18n="prog1_li3">Friendly moderation + community rules</li>
+          </ul>
+        </article>
+
+        <article class="card card--hover">
+          <div class="card__top">
+            <span class="tag" data-i18n="tag_community">Community</span>
+            <span class="mini">NYC</span>
+          </div>
+          <div class="card__title" data-i18n="prog2_title">Cultural Events</div>
+          <ul class="list">
+            <li data-i18n="prog2_li1">Nauryz, Jeltoqsan month, talks & workshops</li>
+            <li data-i18n="prog2_li2">Real connections and networking</li>
+            <li data-i18n="prog2_li3">Soft-power language learning through culture</li>
+          </ul>
+        </article>
+
+        <article class="card card--hover">
+          <div class="card__top">
+            <span class="tag" data-i18n="tag_tech">Tech</span>
+            <span class="mini mini--gold" data-i18n="tag_soon">Coming soon</span>
+          </div>
+          <div class="card__title" data-i18n="prog3_title">AI Match App</div>
+          <ul class="list">
+            <li data-i18n="prog3_li1">Find Kazakh speakers nearby</li>
+            <li data-i18n="prog3_li2">Match by interests + professional field</li>
+            <li data-i18n="prog3_li3">Practice partners + community building</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="container section">
+      <div class="eventsHead reveal">
+        <div>
+          <h2 data-i18n="events_title">Events</h2>
+          <p class="muted" data-i18n="events_text">
+            We announce events through Partiful. Tap an event to RSVP.
+          </p>
+        </div>
+        <div class="eventsBtns">
+          <a class="btn btn--primary" href="https://t.me/+3HtZmf0cFZJlNjM5" target="_blank" rel="noopener" data-i18n="events_btn1">Get updates (Telegram)</a>
+          <a class="btn" href="https://chat.whatsapp.com/DQXKsMQLTe2AYSSVaUuwIX" target="_blank" rel="noopener" data-i18n="events_btn2">WhatsApp updates</a>
+        </div>
+      </div>
+
+      <!-- Next event panel -->
+      <div class="nextPanel reveal">
+        <div class="nextPanel__left">
+          <div class="mini mini--gold" data-i18n="next_badge">Next event</div>
+          <h3 id="nextEventTitle2" class="nextPanel__title">Weekly Speaking Club</h3>
+          <div id="nextEventDetails" class="nextPanel__meta muted"></div>
+          <div id="nextEventDeadline" class="tiny"></div>
+        </div>
+        <div class="nextPanel__right">
+          <a id="nextEventRsvp2" class="btn btn--primary btn--wide" href="#events" data-i18n="join_next_club">Join Next Speaking Club</a>
+          <a class="btn btn--ghost btn--wide" href="#join" data-i18n="how_to_join_btn">How to join</a>
+        </div>
+      </div>
+
+      <!-- Calendar view -->
+      <div class="panel reveal">
+        <div class="panelHead">
+          <h3 class="panelTitle" data-i18n="calendar_title">Weekly club calendar</h3>
+          <span class="muted" data-i18n="calendar_hint">NYC time • RSVP deadlines shown when available</span>
+        </div>
+        <div id="calendarList" class="calendarList"></div>
+      </div>
+
+      <!-- Upcoming events cards -->
+      <div id="eventsGrid" class="eventGrid reveal">
+        <!-- JS renders Partiful event cards here -->
+      </div>
+
+      <!-- Past events -->
+      <div class="panel reveal" style="margin-top:16px;">
+        <div class="panelHead">
+          <h3 class="panelTitle" data-i18n="past_title">Past events</h3>
+          <a class="btn btn--ghost btn--sm" href="#gallery" data-i18n="past_cta">See photos</a>
+        </div>
+        <div id="pastEvents" class="pastGrid"></div>
+      </div>
+
+      <div class="panel reveal" style="margin-top:16px;">
+      </div>
+    </section>
+
+    <!-- Community (social proof + interactive) -->
+    <section id="community" class="container section">
+      <div class="reveal">
+        <h2 data-i18n="community_title">Community</h2>
+        <p class="muted" data-i18n="community_text">Practice together, get matched by level, and see what we’ve been up to.</p>
+      </div>
+
+      <div class="communityGrid reveal">
+        <article class="panel">
+          <div class="panelHead">
+            <h3 class="panelTitle" data-i18n="members_title">Live member count</h3>
+            <span class="mini mini--gold" data-i18n="impact_live">Live</span>
+          </div>
+          <div class="memberCounter">
+            <div class="memberCounter__big" id="memberCount">207</div>
+            <div class="memberCounter__small" data-i18n="members_sub">Kazakhs in NYC (community)</div>
+          </div>
+          <div class="divider"></div>
+          <div class="chipRow">
+            <a class="btn btn--primary" data-track="join_telegram" href="https://t.me/+3HtZmf0cFZJlNjM5" target="_blank" rel="noopener">Telegram <span class="countPill" id="telegramCountA">—</span></a>
+            <a class="btn" data-track="join_whatsapp" href="https://chat.whatsapp.com/DQXKsMQLTe2AYSSVaUuwIX" target="_blank" rel="noopener">WhatsApp <span class="countPill" id="whatsappCountA">—</span></a>
+            <a class="btn btn--ghost" data-track="join_instagram" href="https://www.instagram.com/qazaq.connect/" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </article>
+
+        <article id="quiz" class="panel">
+          <div class="panelHead">
+            <h3 class="panelTitle" data-i18n="quiz_title">Test your Kazakh level</h3>
+            <span class="muted" data-i18n="quiz_hint">Takes ~30 seconds</span>
+          </div>
+
+          <form id="levelQuiz" class="quiz" novalidate>
+            <fieldset class="quizQ">
+              <legend data-i18n="quiz_q1">When you speak Kazakh, you feel…</legend>
+              <label class="opt"><input type="radio" name="q1" value="1"> <span data-i18n="quiz_q1_a">Just starting / shy</span></label>
+              <label class="opt"><input type="radio" name="q1" value="2"> <span data-i18n="quiz_q1_b">Okay with daily life topics</span></label>
+              <label class="opt"><input type="radio" name="q1" value="3"> <span data-i18n="quiz_q1_c">Confident, can debate</span></label>
+            </fieldset>
+
+            <fieldset class="quizQ">
+              <legend data-i18n="quiz_q2">How often do you speak Kazakh weekly?</legend>
+              <label class="opt"><input type="radio" name="q2" value="1"> <span data-i18n="quiz_q2_a">0–1 days</span></label>
+              <label class="opt"><input type="radio" name="q2" value="2"> <span data-i18n="quiz_q2_b">2–3 days</span></label>
+              <label class="opt"><input type="radio" name="q2" value="3"> <span data-i18n="quiz_q2_c">4+ days</span></label>
+            </fieldset>
+
+            <fieldset class="quizQ">
+              <legend data-i18n="quiz_q3">What do you want most?</legend>
+              <label class="opt"><input type="radio" name="q3" value="1"> <span data-i18n="quiz_q3_a">Basics & confidence</span></label>
+              <label class="opt"><input type="radio" name="q3" value="2"> <span data-i18n="quiz_q3_b">Fluency & vocabulary</span></label>
+              <label class="opt"><input type="radio" name="q3" value="3"> <span data-i18n="quiz_q3_c">Advanced topics & speaking speed</span></label>
+            </fieldset>
+
+            <button class="btn btn--primary btn--wide" type="submit" data-i18n="quiz_submit">Get my recommendation</button>
+            <div id="quizResult" class="quizResult" role="status" aria-live="polite"></div>
+          </form>
+        </article>
+
+        <article class="panel">
+          <div class="panelHead">
+            <h3 class="panelTitle" data-i18n="resources_title">Quick resources</h3>
+            <a class="btn btn--ghost btn--sm" href="#support" data-i18n="resources_support">Support us</a>
+          </div>
+
+          <div class="accordionList">
+            <details class="acc">
+              <summary data-i18n="res1_t">Basic greetings</summary>
+              <div class="accBody">
+                <div class="phraseRow">
+                  <div><b>Сәлем!</b> — <span data-i18n="res_hello">Hi!</span></div>
+                  <button class="btn btn--ghost btn--sm copyBtn" type="button" data-copy="Сәлем!">Copy</button>
+                </div>
+                <div class="phraseRow">
+                  <div><b>Қалайсың?</b> — <span data-i18n="res_howareyou">How are you?</span></div>
+                  <button class="btn btn--ghost btn--sm copyBtn" type="button" data-copy="Қалайсың?">Copy</button>
+                </div>
+              </div>
+            </details>
+
+            <details class="acc">
+              <summary data-i18n="res2_t">At the café</summary>
+              <div class="accBody">
+                <div class="phraseRow">
+                  <div><b>Кофе алайын.</b> — <span data-i18n="res_coffee">I’ll get a coffee.</span></div>
+                  <button class="btn btn--ghost btn--sm copyBtn" type="button" data-copy="Кофе алайын.">Copy</button>
+                </div>
+                <div class="phraseRow">
+                  <div><b>Қанша тұрады?</b> — <span data-i18n="res_howmuch">How much is it?</span></div>
+                  <button class="btn btn--ghost btn--sm copyBtn" type="button" data-copy="Қанша тұрады?">Copy</button>
+                </div>
+              </div>
+            </details>
+
+            <details class="acc">
+              <summary data-i18n="res3_t">Networking</summary>
+              <div class="accBody">
+                <div class="phraseRow">
+                  <div><b>Танысқаныма қуаныштымын.</b> — <span data-i18n="res_nice">Nice to meet you.</span></div>
+                  <button class="btn btn--ghost btn--sm copyBtn" type="button" data-copy="Танысқаныма қуаныштымын.">Copy</button>
+                </div>
+                <div class="phraseRow">
+                  <div><b>Қай салада жұмыс істейсің?</b> — <span data-i18n="res_field">What field do you work in?</span></div>
+                  <button class="btn btn--ghost btn--sm copyBtn" type="button" data-copy="Қай салада жұмыс істейсің?">Copy</button>
+                </div>
+              </div>
+            </details>
+          </div>
+
+        </article>
+
+        <article class="panel">
+          <div class="panelHead">
+            <h3 class="panelTitle" data-i18n="ig_title">Live Instagram</h3>
+            <a class="btn btn--ghost btn--sm" href="https://www.instagram.com/qazaq.connect/" target="_blank" rel="noopener" data-i18n="ig_open">Open profile</a>
+          </div>
+
+          <div class="muted" data-i18n="ig_text">Recent posts from @qazaq.connect (auto-updates when configured).</div>
+
+          <div id="igLive" class="igLive">
+            <div class="igSkeleton">
+              <div class="skCard"></div><div class="skCard"></div><div class="skCard"></div><div class="skCard"></div>
+            </div>
+          </div>
+
+          <div class="chipRow">
+            <button id="igLoadBtn" class="btn btn--primary btn--wide" type="button" data-i18n="ig_load">Load recent posts</button>
+            <button id="igMoreBtn" class="btn btn--ghost btn--wide" type="button" data-i18n="ig_more" disabled>Load more</button>
+          </div>
+
+        </article>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="container section">
+      <div class="reveal">
+        <h2 data-i18n="gallery_title">Gallery</h2>
+        <p class="muted" data-i18n="gallery_text">Choose photos or Instagram posters.</p>
+      </div>
+
+      <div class="galleryTabs reveal">
+        <button class="tabBtn is-active" data-tab="photos" type="button" data-i18n="tab_photos">Photos</button>
+        <button class="tabBtn" data-tab="instagram" type="button" data-i18n="tab_posters">Instagram Posters</button>
+      </div>
+
+      <!-- Photos grid -->
+      <div id="photoGrid" class="galleryGrid reveal">
+        <button class="photo" data-img="assets/g-1.jpg" aria-label="Open photo 1"><img src="assets/g-1.jpg" alt="Qazaq Connect photo 1" loading="lazy"></button>
+        <button class="photo" data-img="assets/g-2.jpg" aria-label="Open photo 2"><img src="assets/g-2.jpg" alt="Qazaq Connect photo 2" loading="lazy"></button>
+        <button class="photo" data-img="assets/g-3.jpg" aria-label="Open photo 3"><img src="assets/g-3.jpg" alt="Qazaq Connect photo 3" loading="lazy"></button>
+        <button class="photo" data-img="assets/g-4.jpg" aria-label="Open photo 4"><img src="assets/g-4.jpg" alt="Qazaq Connect photo 4" loading="lazy"></button>
+        <button class="photo" data-img="assets/g-5.jpg" aria-label="Open photo 5"><img src="assets/g-5.jpg" alt="Qazaq Connect photo 5" loading="lazy"></button>
+        <button class="photo" data-img="assets/g-6.jpg" aria-label="Open photo 6"><img src="assets/g-6.jpg" alt="Qazaq Connect photo 6" loading="lazy"></button>
+      </div>
+
+      <!-- Instagram posters (embeds) -->
+      <div id="igPanel" class="igPanel reveal" hidden>
+        <div class="panel">
+        </div>
+        <div id="igEmbeds" class="igGrid"></div>
+      </div>
+    </section>
+
+    <!-- Blog / SEO -->
+    <section id="blog" class="container section">
+      <div class="reveal">
+        <h2 data-i18n="blog_title">Culture blog</h2>
+        <p class="muted" data-i18n="blog_text">Short reads about Kazakh traditions, language tips, and NYC life.</p>
+      </div>
+
+      <div class="blogGrid reveal">
+        <article class="card card--hover">
+          <div class="card__kicker" data-i18n="blog1_k">Traditions</div>
+          <div class="card__title" data-i18n="blog1_t">What is Nauryz?</div>
+          <div class="card__text" data-i18n="blog1_b">A quick guide to the holiday, food, and how we celebrate in NYC.</div>
+          <a class="btn btn--ghost btn--wide" href="#contact" data-i18n="blog_read">Read</a>
+        </article>
+
+        <article class="card card--hover">
+          <div class="card__kicker" data-i18n="blog2_k">Language</div>
+          <div class="card__title" data-i18n="blog2_t">5 phrases to use today</div>
+          <div class="card__text" data-i18n="blog2_b">Practical phrases for work, school, and meeting new friends.</div>
+          <a class="btn btn--ghost btn--wide" href="#community" data-i18n="blog_read">Read</a>
+        </article>
+
+        <article class="card card--hover">
+          <div class="card__kicker" data-i18n="blog3_k">Community</div>
+          <div class="card__title" data-i18n="blog3_t">How speaking clubs work</div>
+          <div class="card__text" data-i18n="blog3_b">What happens in a session, how groups are split, and what to expect.</div>
+          <a class="btn btn--ghost btn--wide" href="#join" data-i18n="blog_read">Read</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Support / Donate -->
+    <section id="support" class="container section">
+      <div class="reveal">
+        <h2 data-i18n="support_title">Support Qazaq Connect</h2>
+        <p class="muted" data-i18n="support_text">Your support keeps clubs affordable and helps us grow cultural programs.</p>
+      </div>
+
+      <div class="supportGrid reveal">
+        <article class="panel">
+          <div class="panelHead">
+            <h3 class="panelTitle" data-i18n="support_ways">Ways to support</h3>
+          </div>
+          <div class="chipRow">
+            <a class="btn btn--primary btn--wide" href="#" id="donateBtn" data-i18n="support_donate">Donate</a>
+            <a class="btn btn--ghost btn--wide" href="#contact" data-i18n="support_sponsor">Become a sponsor</a>
+            <a class="btn btn--ghost btn--wide" href="#contact" data-i18n="support_volunteer">Volunteer</a>
+          </div>
+        </article>
+
+        <article class="panel">
+          <div class="panelHead">
+            <h3 class="panelTitle" data-i18n="support_transparency">Transparency</h3>
+          </div>
+          <ul class="list">
+            <li data-i18n="support_li1">Funds go to venue fees, materials, and cultural events.</li>
+            <li data-i18n="support_li2">We share impact updates and sponsor acknowledgements.</li>
+            <li data-i18n="support_li3">Nonprofit status / EIN</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="container section">
+      <div class="grid2">
+        <div class="reveal">
+          <h2 data-i18n="contact_title">Contact</h2>
+          <p class="muted" data-i18n="contact_text">
+            For partnerships, volunteering, or RSVP — message us on Telegram/WhatsApp/Instagram.
+          </p>
+
+          <div class="panel">
+            <p class="muted" data-i18n="contact_fast">Fastest way: join the community chats 👇</p>
+            <div class="chipRow">
+              <a class="btn btn--primary" href="https://t.me/+3HtZmf0cFZJlNjM5" target="_blank" rel="noopener">Telegram</a>
+              <a class="btn" href="https://chat.whatsapp.com/DQXKsMQLTe2AYSSVaUuwIX" target="_blank" rel="noopener">WhatsApp</a>
+              <a class="btn" href="https://www.instagram.com/qazaq.connect/" target="_blank" rel="noopener">Instagram</a>
+            </div>
+            <p class="tiny" data-i18n="contact_donate">Donation link is “coming soon”</p>
+          </div>
+        </div>
+
+        <div class="reveal">
+          <div class="panel">
+            <div class="miniBrand">
+              <img src="assets/logo.png" alt="Qazaq Connect logo" class="miniBrand__logo">
+              <div>
+                <div class="miniBrand__name">Qazaq Connect</div>
+                <div class="miniBrand__tag">Kazakh Speaking Club • NYC</div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="details">
+              <div><b>Instagram:</b> @qazaq.connect</div>
+              <div><b>City:</b> New York City</div>
+              <div><b>Focus:</b> Language • Culture • Community</div>
+            </div>
+
+            <div class="note" data-i18n="contact_note">Official nonprofit status / EIN.</div>
+          </div>
+
+          <div class="footerTiny">© <span id="year"></span> Qazaq Connect • Made with love for the language.</div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>Qazaq Connect — All rights reserved.</div>
+        <a href="#top" data-i18n="back_to_top">Back to top</a>
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <button id="lbClose" class="lightbox__close" aria-label="Close">✕</button>
+      <img id="lbImg" class="lightbox__img" src="" alt="Expanded photo" />
+    </div>
+  </main>
+
+  <!-- Floating community widget (Telegram/WhatsApp) -->
+  <div id="chatFloat" class="chatFloat" aria-label="Community links">
+    <button id="chatFloatBtn" class="chatFloat__btn" type="button" aria-expanded="false">
+      <span class="chatFloat__dot" aria-hidden="true"></span>
+      <span data-i18n="float_join">Join the community</span>
+      <span class="chatFloat__chev" aria-hidden="true">▴</span>
+    </button>
+
+    <div id="chatFloatPanel" class="chatFloat__panel" hidden>
+      <div class="chatFloat__links">
+        <a class="chatFloat__link" data-track="float_telegram" href="https://t.me/+3HtZmf0cFZJlNjM5" target="_blank" rel="noopener">
+          Telegram <span class="countPill" id="telegramCountB">—</span>
+        </a>
+        <a class="chatFloat__link" data-track="float_whatsapp" href="https://chat.whatsapp.com/DQXKsMQLTe2AYSSVaUuwIX" target="_blank" rel="noopener">
+          WhatsApp <span class="countPill" id="whatsappCountB">—</span>
+        </a>
+      </div>
+      <div class="chatFloat__meta">
+        <span class="muted" data-i18n="float_members">Members</span>
+        <b id="floatMembers">207</b>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
