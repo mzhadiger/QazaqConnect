@@ -1,21 +1,8 @@
-// =========================
 // Qazaq Connect — JS (EN + KZ, Events + Calendar, Instagram, Quiz, Analytics)
-// =========================
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// ---------- Config you edit ----------
-/**
- * PARTIFUL EVENTS
- * Add upcoming events here.
- *
- * Recommended fields (unlock "Next Event" banner + Calendar):
- * - startISO: ISO date/time string (NYC time). Example: "2026-01-15T19:00:00-05:00"
- * - endISO: ISO date/time string
- * - rsvpDeadlineISO: ISO string (optional)
- * - type: "speaking" | "cultural"
- * - recurringWeekly: true (optional; used as template for weekly calendar)
- */
+
 const PARTIFUL_EVENTS = [
   {
     title: { en: "Weekly Speaking Club", kz: "Апталық сөйлесу клубы" },
@@ -28,6 +15,7 @@ const PARTIFUL_EVENTS = [
     // startISO: "2026-01-15T19:00:00-05:00",
     // endISO: "2026-01-15T21:00:00-05:00",
     // rsvpDeadlineISO: "2026-01-15T15:00:00-05:00",
+    // Subject to change
   },
   {
     title: { en: "Nauryz Celebration", kz: "Наурыз мерекесі" },
@@ -47,10 +35,7 @@ const PARTIFUL_EVENTS = [
   },
 ];
 
-/**
- * PAST EVENTS ARCHIVE
- * Used for "Past events" recap cards (photos/recaps).
- */
+//PAST EVENTS ARCHIVE
 const PAST_EVENTS = [
   {
     title: { en: "New Year Meetup", kz: "Жаңа жыл кездесуі" },
@@ -66,43 +51,13 @@ const PAST_EVENTS = [
   },
 ];
 
-/**
- * Instagram feed (real-time recommended):
- * - Best: set IG_FEED_ENDPOINT to your own backend endpoint that returns recent posts as JSON.
- *   Expected response:
- *     { "posts": [ { "permalink": "...", "media_url": "...", "caption": "...", "timestamp": "..." } ] }
- *
- * - Fallback: INSTAGRAM_POSTS permalinks + Instagram embed.js (heavier on mobile).
- */
-const IG_PROFILE_URL = "https://www.instagram.com/qazaq.connect/";
-const IG_FEED_ENDPOINT = ""; // e.g. "https://your-domain.com/api/instagram-feed"
-const IG_POST_LIMIT = 8;
 
-const INSTAGRAM_POSTS = [
-  "https://www.instagram.com/p/DRnh1KhgQ4x/?img_index=1",
-  "https://www.instagram.com/p/DRkWJFyEZC1/?img_index=1",
-  "https://www.instagram.com/p/DRhsExjEX7Y/?img_index=1",
-];
-
-/**
- * Community stats (optional real-time):
- * Endpoint should return: { "members":, "telegram": 207, "whatsapp": 0 }
- */
 const COMMUNITY_STATS_ENDPOINT = "";
 
-/**
- * Donate button:
- * - If DONATE_URL is empty, "Donate" button points to #support.
- * - If set, it will open your donate landing page.
- */
 const DONATE_URL = "";
 
-/**
- * Analytics:
- * Add your GA4 measurement ID to enable tracking automatically.
- * Leave blank to keep tracking disabled (events still logged in console).
- */
-const GA4_MEASUREMENT_ID = ""; // "G-XXXXXXXXXX"
+
+const GA4_MEASUREMENT_ID = "";
 
 // ---------- i18n strings ----------
 const STRINGS = {
@@ -721,7 +676,6 @@ function parseISO(iso) {
 }
 
 function fmtDateTime(d, lang) {
-  // Prefer NYC formatting without depending on libraries.
   try {
     return new Intl.DateTimeFormat(lang === "kz" ? "kk-KZ" : "en-US", {
       weekday: "short",
@@ -877,9 +831,6 @@ function renderCalendar(lang) {
 
   const t = STRINGS[lang] || STRINGS.en;
 
-  // Build calendar from:
-  // 1) events with startISO in the future (first 6)
-  // 2) if none have dates, generate next 4 Thursdays as a fallback "weekly"
   const upcoming = getUpcomingEvents();
   const rows = [];
 
@@ -1090,9 +1041,6 @@ if (notifyForm) {
 
     setMsg(getLang() === "kz" ? "Жіберілуде…" : "Sending…", true);
 
-    // No backend in this template:
-    // - By default we store locally (so you can export later)
-    // - Optional: connect to a form endpoint (Formspree, Airtable, Google Forms, your own API)
     try {
       const item = {
         email,
@@ -1192,7 +1140,6 @@ function bindCopyButtons(root = document) {
         setTimeout(() => (btn.textContent = "Copy"), 900);
         track("copy_phrase", { text });
       } catch {
-        // fallback
         track("copy_phrase_failed", { text });
       }
     });
@@ -1284,7 +1231,6 @@ async function loadLiveInstagram() {
   if (loadBtn) loadBtn.disabled = true;
 
   try {
-    // Preferred: fast thumbnails/cards from your endpoint
     if (IG_FEED_ENDPOINT) {
       track("ig_feed_load", { mode: "endpoint" });
       const res = await fetch(IG_FEED_ENDPOINT, { cache: "no-store" });
@@ -1312,7 +1258,6 @@ async function loadLiveInstagram() {
       return;
     }
 
-    // Fallback: embed.js
     track("ig_feed_load", { mode: "embeds" });
     const links = INSTAGRAM_POSTS.length ? INSTAGRAM_POSTS : [];
     if (!links.length) {
@@ -1360,7 +1305,7 @@ if (igPanelLive && !prefersReducedMotion) {
   io.observe(igPanelLive);
 }
 
-// ---------- Gallery tabs + Instagram posters (existing) ----------
+// ---------- Gallery tabs + Instagram posters (existing)
 const tabBtns = $$(".tabBtn");
 const photoGrid = $("#photoGrid");
 const igPanel = $("#igPanel");
@@ -1420,7 +1365,7 @@ tabBtns.forEach((btn) => {
   btn.addEventListener("click", () => setTab(btn.dataset.tab));
 });
 
-// ---------- Community stats (optional) ----------
+// ---------- Community stats
 async function loadCommunityStats() {
   if (!COMMUNITY_STATS_ENDPOINT) return;
   try {
@@ -1498,14 +1443,12 @@ if (chatFloatBtn && chatFloatPanel) {
   // Default: keep closed for speed
   setChatFloat(false);
 
-  // Initialize floating member count from the main counter if present
   const main = $("#memberCount");
   const floatM = $("#floatMembers");
   if (main && floatM) floatM.textContent = main.textContent || floatM.textContent;
 }
 
 // ---------- Donate button ----------
-
 const donateBtn = $("#donateBtn");
 if (donateBtn) {
   if (DONATE_URL) {
@@ -1519,7 +1462,7 @@ if (donateBtn) {
   bindTrackedLinks(donateBtn);
 }
 
-// ---------- Analytics (GA4 optional) ----------
+// ---------- Analytics (GA4) ----------
 function setupGA4() {
   if (!GA4_MEASUREMENT_ID) return;
   const s = document.createElement("script");
@@ -1539,12 +1482,9 @@ function track(eventName, params = {}) {
     if (window.gtag && GA4_MEASUREMENT_ID) {
       window.gtag("event", eventName, params);
     } else {
-      // Dev-friendly logging
-      // eslint-disable-next-line no-console
       console.debug("[track]", eventName, params);
     }
   } catch {
-    // ignore
   }
 }
 
@@ -1618,7 +1558,6 @@ function escapeHtml(str) {
 }
 
 function escapeAttr(str) {
-  // For attributes like src
   return escapeHtml(str).replace(/`/g, "&#096;");
 }
 
