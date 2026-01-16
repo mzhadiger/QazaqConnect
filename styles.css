@@ -534,7 +534,7 @@ h2{
 .footer a:hover{ color: var(--text); }
 
 
-/* Reveal animation */
+/* Animation Reveal */
 .reveal{
   opacity: 0;
   transform: translateY(14px);
@@ -648,11 +648,6 @@ h2{
   overflow:hidden;
   box-shadow: 0 12px 50px rgba(0,0,0,.25);
 }
-
-
-/* ==========================
-   Refresh additions (CTA hierarchy, join flow, trust, calendar, instagram, mobile RSVP)
-   ========================== */
 
 .skipLink{
   position: absolute;
